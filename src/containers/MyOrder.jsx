@@ -4,7 +4,7 @@ import OrderItem from "@components/OrderItem";
 import "@styles/MyOrder.scss";
 import flechita from "@icons/flechita.svg";
 
-const MyOrder = () => {
+const MyOrder = ({ toggleOrders, handleToggleOrders }) => {
   const { state } = useContext(AppContext);
 
   const sumTotal = () => {
@@ -17,7 +17,11 @@ const MyOrder = () => {
   return (
     <aside className="MyOrder">
       <div className="title-container">
-        <img src={flechita} alt="arrow" />
+        <img
+          src={flechita}
+          alt="arrow"
+          onClick={() => handleToggleOrders(!toggleOrders)}
+        />
         <p className="title">My order</p>
       </div>
       <div className="my-order-content">
